@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  
+  
+}
+
+h1{
+  display:flex;
+  justify-content: center;
+}
+
+#hud{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#btnContainer{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#grid-wrapper {
+  min-height: 73vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#grid {
+  
+  width: 600px;
+  background-image: url(../assets/grass.jpg);
+}
+
+#grid section {
+  /* border: 1px solid lightgrey; */
+  display: inline-block;
+  aspect-ratio: 1;
+  
+}
+
+#gameOverDisp{
+  position: absolute;
+  border: 2px solid black;
+  padding: 20px;
+  
+}
+
+#grid section.ninja{
+  background-image: url('../assets/Faceset.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#grid section.collision1{
+  background-image: url('../assets/kunaiblack2.gif');
+  background-repeat: no-repeat;
+  background-size: 70px;
+  background-position: center;
+}
+#grid section.collision2{
+  background-image: url('../assets/kunai.gif');
+  background-repeat: no-repeat;
+  background-size: 70px;
+  background-position: center;
+}
+#grid section.collision3{
+  background-image: url('../assets/kunai white flip.gif');
+  background-repeat: no-repeat;
+  background-size: 70px;
+  background-position: center;
+}
+#grid section.collision4{
+  background-image: url('../assets/shurikan.gif');
+  background-repeat: no-repeat;
+  background-size: 70px;
+  background-position: center;
+}
+
+#grid section.goalItem{
+  background-image: url('../assets/Coin.gif');
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+}
+
+.hidden{
+  display: none;
+}
+
+.wall{
+  background-image: url('../assets/rock.png');
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center;
+}

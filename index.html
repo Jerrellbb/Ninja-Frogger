@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ninjump!</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="scripts/app.js" charset="utf-8"></script>
+</head>
+<body>
+  <section class="header">
+    <h1>Ninjump!</h1>
+  </section>
+  <section id="hud">
+  
+    <div id="lives">
+      <img src="assets/tile000.png" alt="">
+      <img src="assets/tile000.png" alt="">
+      <img src="assets/tile000.png" alt="">
+    </div>
+    
+    <div >time left: <span id="timeRemaining">60</span> seconds</div>
+    <div>score: <span class="currentScore">0</span></div>
+    
+  </section>
+  <main id="grid-wrapper">
+    <section id="grid"></section>
+    <div id="gameOverDisp">game over<br>your score was: <span class="currentScore">0</span></div>
+  </main>
+  <section id="btnContainer">
+    <button id="startGame">Start Game</button>
+    <button id="mute">🔈</button>
+  </section>
+</body>
+</html>
