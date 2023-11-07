@@ -27,11 +27,9 @@ h1{
 #btnContainer{
   display: flex;
   justify-content: space-around;
-  /* margin-left: 50px;
-  margin-right: 50px; */
   margin: 0px 300px;
-  /* border: 3px solid brown; */
   padding-top: 10px;
+  
   
 }
 #grid-wrapper {
@@ -50,7 +48,7 @@ h1{
 }
 
 #grid section {
-  /* border: 1px solid lightgrey; */
+  
   display: inline-block;
   aspect-ratio: 1;
   
