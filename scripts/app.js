@@ -1,7 +1,7 @@
 // elements 
 const grid = document.querySelector('#grid')
 
-const currentScore = document.querySelector('.currentScore')
+const currentScore = document.querySelectorAll('.currentScore')
 // .currentScore
 const muteBtn = document.querySelector('#mute')
 // .muteBtn
@@ -13,6 +13,8 @@ const ninja = document.querySelector('#grid section.ninja')
 // .collision1
 const collision1 = document.querySelector('#grid section.collision1')
 const collision2 = document.querySelector('#grid section.collision2')
+const collision3 = document.querySelector('#grid section.collision3')
+const collision4 = document.querySelector('#grid section.collision4')
 
 // .collision2
 
@@ -47,6 +49,8 @@ const height = 9
 const cellCount = height * width 
 let collision1Pos = 103
 let collision2Pos = 65
+let collision3Pos = 26
+let collision4Pos = 64
 const rockPos = [86, 87, 81, 82, 44, 45, 46, 15, 16, 17, 21, 22, 23 ]
 // [103, 77]
 
@@ -55,14 +59,30 @@ const rockPos = [86, 87, 81, 82, 44, 45, 46, 15, 16, 17, 21, 22, 23 ]
 let goalItemPos = 6
 const collision1Row = Math.floor(collision1Pos / width)
 const collision2Row = Math.floor(collision2Pos / width)
+const collision3Row = Math.floor(collision3Pos / width)
+const collision4Row = Math.floor(collision4Pos / width)
 function startGame() {
   gameActive = true
+
+  // collisionActionLeft(collision1Pos, addClass(collision1Pos, collision1), removeClass(collision1Pos, collision1), collision1Row)
+  
+  // collisionActionLeft(collision3Pos, addClass(collision3Pos, collision3), removeClass(collision3Pos, collision3), collision3Row)
+
+  
+  // collisionActionRight(collision2Pos, addClass(collision2Pos, collision2), removeClass(collision2Pos, collision2), collision2Row)
+  // collisionActionRight(collision4Pos, addClass(collision4Pos, collision4), removeClass(collision4Pos, collision4), collision4Row)
+  
   collision1Action()
   collision2Action()
+  collision3Action()
+  collision4Action()
+
   goalItemAdd()
   document.addEventListener('keydown', keyPress)
-  setInterval(collision1Action, 500)
+  setInterval(collision1Action, 300)
   setInterval(collision2Action, 200)
+  setInterval(collision3Action, 300)
+  setInterval(collision4Action, 100)
   
 } 
   
@@ -81,7 +101,7 @@ function createGrid(){
     cells.push(cell)
   }
   
-  gameOverDisp.style.display = 'none'
+  // gameOverDisp.style.display = 'none'
     
   addNinja()
   addRock()
@@ -103,17 +123,20 @@ function goalItemRemove(){
   cells[goalItemPos].classList.remove('goalItem')
 }
 function collision1add(){
-  // for (const position of collision1Pos) {
-  //   cells[position].classList.add('collision1')
-  // }
   cells[collision1Pos].classList.add('collision1')
 
 }
-function collision1remove(){
 
-  // for (const position of collision1Pos) {
-  //   cells[position].classList.remove('collision1')
-  // }
+// function addClass(collisionPos, cssClass){
+//   cells[collisionPos].classList.add(cssClass)
+
+// }
+
+// function removeClass(collisionPos, cssClass){
+//   cells[collisionPos].classList.remove(cssClass)
+// }
+
+function collision1remove(){
   cells[collision1Pos].classList.remove('collision1')
 
 }
@@ -124,6 +147,23 @@ function collision2add(){
 }
 function collision2remove(){
   cells[collision2Pos].classList.remove('collision2')
+
+}
+function collision3add(){
+  cells[collision3Pos].classList.add('collision3')
+
+}
+function collision3remove(){
+  cells[collision3Pos].classList.remove('collision3')
+
+}
+function collision4add(){
+  
+  cells[collision4Pos].classList.add('collision4')
+
+}
+function collision4remove(){
+  cells[collision4Pos].classList.remove('collision4')
 
 }
 function resetNinja(){
@@ -198,20 +238,54 @@ function point() {
 }
 
 function rndmPos(row) {
-  // Generate a random position within the specified row
+  //  random position in  row
   return row * width + Math.floor(Math.random() * width)
 }
 
 
 // setInterval (collisionItem1 left across grid at speed)
+
+// function collisionActionLeft(collisionPos, addClass, removeClass, collisionRow){
+//   if ( collisionPos  % width !== 0) {
+//     addClass()
+//     collisionPos--
+//     removeClass()
+//   } else {
+//     removeClass()
+//     collisionPos =  collisionRow * width + (width - 1)
+//     addClass()
+//   } 
+//   if (collisionPos === currentPos){
+//     return damage()
+//   } 
+
+
+// }
+
+// function collisionActionRight(collisionPos, addClass, removeClass, collisionRow){
+//   if ( collisionPos  % width !== 0) {
+//     addClass()
+//     collisionPos--
+//     removeClass()
+//   } else {
+//     removeClass()
+//     collisionPos =  collisionRow * width 
+//     addClass()
+//   } 
+//   if (collisionPos === currentPos){
+//     return damage()
+//   }
+// }
+  
 function collision1Action(){
-  if ( collision1Pos  % width !== 0) {
+  if ( collision1Pos  % width !== width - 1) {
     collision1remove()
-    collision1Pos--
+    collision1Pos++
     collision1add()
   } else {
     collision1remove()
-    collision1Pos =  collision1Row * width + (width - 1)
+    collision1Pos = collision1Row * width 
+      
     collision1add()
     
   } 
@@ -234,6 +308,39 @@ function collision2Action(){
   } 
   // collision1Pos of is the same as current pos of ninja take damage
   if (collision2Pos === currentPos){
+    return damage()
+  }
+}  
+function collision3Action(){
+  if ( collision3Pos  % width !== 0) {
+    collision3remove()
+    collision3Pos--
+    collision3add()
+  } else {
+    collision3remove()
+    collision3Pos =  collision3Row * width + (width - 1)
+    collision3add()
+    
+  } 
+  // collision1Pos of is the same as current pos of ninja take damage
+  if (collision3Pos === currentPos){
+    return damage()
+  }
+}  
+function collision4Action(){
+  if ( collision4Pos  % width !== width - 1) {
+    collision4remove()
+    collision4Pos++
+    collision4add()
+  } else {
+    collision4remove()
+    collision4Pos = collision4Row * width 
+      
+    collision4add()
+    
+  } 
+  // collision1Pos of is the same as current pos of ninja take damage
+  if (collision4Pos === currentPos){
     return damage()
   }
 }  
@@ -284,12 +391,12 @@ function keyPress(evt){
   }
   addNinja()
   point()
-  if (currentPos === collision1Pos || currentPos === collision2Pos){
+  if (currentPos === collision1Pos || currentPos === collision2Pos || currentPos === collision3Pos || currentPos === collision4Pos){
     return damage()
   }
-
-  
 }
+
+
 // mute sound on button click
 //start game on button click
 startBtn.addEventListener('click', startGame) 
