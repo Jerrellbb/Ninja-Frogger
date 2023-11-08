@@ -264,77 +264,6 @@ function collisionActionRight(collisionPos, collisionRow, add, remove, cssClass)
 
 
 
-// function collision1Action(){
-//   if ( collision1Pos  % width !== 0) {
-//     collision1remove()
-//     collision1Pos--
-//     collision1add()
-//   } else {
-//     collision1remove()
-//     collision1Pos = collision1Row * width + (width - 1)
-      
-//     collision1add()
-    
-//   } 
-//   // collision1Pos of is the same as current pos of ninja take damage
-//   if (collision1Pos === currentPos){
-//     return damage()
-//   }
-// }  
-// function collision2Action(){
-//   if ( collision2Pos  % width !== width - 1) {
-//     collision2remove()
-//     collision2Pos++
-//     collision2add()
-//   } else {
-//     collision2remove()
-//     collision2Pos = collision2Row * width 
-      
-//    collision2add()
-    
-//   } 
-//   // collision1Pos of is the same as current pos of ninja take damage
-//   if (collision2Pos === currentPos){
-//     return damage()
-//   }
-// }  
-// function collision3Action(){
-//   if ( collision3Pos  % width !== 0) {
-//     collision3remove()
-//     collision3Pos--
-//     collision3add()
-//   } else {
-//     collision3remove()
-//     collision3Pos =  collision3Row * width + (width - 1)
-//     collision3add()
-    
-//   } 
-//   // collision1Pos of is the same as current pos of ninja take damage
-//   if (collision3Pos === currentPos){
-//     return damage()
-//   }
-// }  
-// function collision4Action(){
-//   if ( collision4Pos  % width !== width - 1) {
-//     collision4remove()
-//     collision4Pos++
-//     collision4add()
-//   } else {
-//     collision4remove()
-//     collision4Pos = collision4Row * width 
-      
-//     collision4add()
-    
-//   } 
-//   // collision1Pos of is the same as current pos of ninja take damage
-//   if (collision4Pos === currentPos){
-//     return damage()
-//   }
-// }  
-
-  
-
-
 console.log(currentScore)
 // function to decreaseLife lives by 1 when ninja collides with collisionItem
 //ninja collision logic if ninja currentpos = collisionPos -1 life
@@ -350,7 +279,8 @@ function damage() {
 
 function resetGame(){
   resetVar()
-  // lifes.forEach((lives) => (lifes.style.display = ''))
+  
+  lifes.forEach((life) => (life.style.visibility = 'visible'))
   clearInterval(actionLeft1)
   clearInterval(actionLeft2)
   clearInterval(actionRight1)
@@ -359,10 +289,10 @@ function resetGame(){
   gameOverDisp.style.display = 'none'
   startGame()
   timer = setInterval(gameEnd,1000)
+  
 }
 
 function resetVar(){
-  
   collision1Pos = 103
   collision2Pos = 65
   collision3Pos = 26
@@ -372,7 +302,9 @@ function resetVar(){
   currentPos = startPosition
   lives = 3
   goalItemPos = 6
-  
+  currentScore.innerText = score
+  endScore.innerText = score
+  timeRemaining.innerText = timeLeft
 }
 
 
