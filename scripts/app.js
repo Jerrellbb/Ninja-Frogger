@@ -187,12 +187,13 @@ function gameEnd(){
   if (timeLeft === 0 || lives === 0){
     
     gameOverDisp.style.display = ''
-    
+    removeNinja()
+    goalItemRemove()
+
     document.removeEventListener('keydown', keyPress)
     clearInterval(timer)
   }
-    
-
+  
 }
 let timer = setInterval(gameEnd, 1000)
 
@@ -288,6 +289,7 @@ function resetGame(){
   clearInterval(timer)
   gameOverDisp.style.display = 'none'
   startGame()
+  
   timer = setInterval(gameEnd,1000)
   
 }
