@@ -42,7 +42,7 @@ h1{
 
 #grid {
   
-  width: 900px;
+  width: 700px;
   background-image: url(../assets/grass.jpg);
   border: 3px solid brown;
 }
@@ -74,25 +74,25 @@ h1{
 #grid section.collision1{
   background-image: url('../assets/kunaiblack2.gif');
   background-repeat: no-repeat;
-  background-size: 70px;
+  background-size: 90px;
   background-position: center;
 }
 #grid section.collision2{
   background-image: url('../assets/kunai.gif');
   background-repeat: no-repeat;
-  background-size: 70px;
+  background-size: 90px;
   background-position: center;
 }
 #grid section.collision3{
   background-image: url('../assets/kunai white flip.gif');
   background-repeat: no-repeat;
-  background-size: 70px;
+  background-size: 90px;
   background-position: center;
 }
 #grid section.collision4{
   background-image: url('../assets/shurikan.gif');
   background-repeat: no-repeat;
-  background-size: 70px;
+  background-size: 90px;
   background-position: center;
 }
 
@@ -115,5 +115,8 @@ h1{
 }
 
 #hud div img{
-  width: 30px
+  width: 30px;
+}
+button{
+  cursor: pointer;
 }

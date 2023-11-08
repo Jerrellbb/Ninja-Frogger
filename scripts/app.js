@@ -77,10 +77,7 @@ function startGame() {
   collision2Pos = collisionActionRight(collision2Pos, collision2Row, addClass, removeClass, 'collision2')
   collision4Pos = collisionActionRight(collision4Pos, collision4Row, addClass, removeClass, 'collision4')
   
-  // collision1Action()
-  // collision2Action()
-  // collision3Action()
-  // collision4Action()
+  
 
   goalItemAdd()
   document.addEventListener('keydown', keyPress)
@@ -105,7 +102,7 @@ function createGrid(){
   
   for (let i = 0; i < cellCount; i++) {
     const cell = document.createElement('section')
-    cell.innerText = i // remove to delete numbers in cells 
+    // cell.innerText = i // remove to delete numbers in cells 
     cell.id = i
     // Set width and height of the div cells
     cell.style.width = `${100 / width}%`
@@ -149,34 +146,6 @@ function removeClass(collisionPos, cssClass){
 }
 
 
-// function collision1remove(){
-//   cells[collision1Pos].classList.remove('collision1')
-
-// }
-// function collision2add(){
-  
-//   cells[collision2Pos].classList.add('collision2')
-
-// }
-// function collision2remove(){
-//   cells[collision2Pos].classList.remove('collision2')
-
-// }
-// function collision3add(){
-//   cells[collision3Pos].classList.add('collision3')
-
-// }
-// function collision3remove(){
-//   cells[collision3Pos].classList.remove('collision3')
-
-// }
-// function collision4add(){
-  
-//   cells[collision4Pos].classList.add('collision4')
-
-// }
-// function collision4remove(){
-//   cells[collision4Pos].classList.remove('collision4')
 
 // }
 function resetNinja(){
@@ -225,7 +194,7 @@ function gameEnd(){
     
 
 }
-const timer = setInterval(gameEnd, 1000)
+let timer = setInterval(gameEnd, 1000)
 
 
 // function to increase currentScore when collecting goalItem
@@ -255,9 +224,10 @@ function rndmPos(row) {
 // setInterval (collisionItem1 left across grid at speed)
 
 function collisionActionLeft(collisionPos, collisionRow, add, remove, cssClass){
+  
   if ( collisionPos  % width !== 0) {
     remove(collisionPos, cssClass)
-    collisionPos = collisionPos - 1
+    collisionPos --
     add(collisionPos, cssClass)
   } else {
     remove(collisionPos, cssClass)
@@ -265,15 +235,18 @@ function collisionActionLeft(collisionPos, collisionRow, add, remove, cssClass){
     add(collisionPos, cssClass)
   } 
   if (collisionPos === currentPos){
-    return damage()
+    
+    damage()
+    
   } 
   return collisionPos
 
 }
+
 function collisionActionRight(collisionPos, collisionRow, add, remove, cssClass){
   if ( collisionPos  % width !== width - 1) {
     remove(collisionPos, cssClass)
-    collisionPos = collisionPos + 1
+    collisionPos ++
     add(collisionPos, cssClass)
   } else {
     remove(collisionPos, cssClass)
@@ -281,7 +254,7 @@ function collisionActionRight(collisionPos, collisionRow, add, remove, cssClass)
     add(collisionPos, cssClass)
   } 
   if (collisionPos === currentPos){
-    return damage()
+    damage()
   } 
   return collisionPos
 
@@ -317,7 +290,7 @@ function collisionActionRight(collisionPos, collisionRow, add, remove, cssClass)
 //     collision2remove()
 //     collision2Pos = collision2Row * width 
       
-//     collision2add()
+//    collision2add()
     
 //   } 
 //   // collision1Pos of is the same as current pos of ninja take damage
@@ -376,13 +349,20 @@ function damage() {
 
 
 function resetGame(){
-  lifes[lives].style.visibility = ''
-  startBtn.removeEventListener('click', gameEnd) 
-  resetGV()
-  gameOverDisp.style.display = 'hidden'
+  resetVar()
+  // lifes.forEach((lives) => (lifes.style.display = ''))
+  clearInterval(actionLeft1)
+  clearInterval(actionLeft2)
+  clearInterval(actionRight1)
+  clearInterval(actionRight2)
+  clearInterval(timer)
+  gameOverDisp.style.display = 'none'
+  startGame()
+  timer = setInterval(gameEnd,1000)
 }
 
-function resetGV(){
+function resetVar(){
+  
   collision1Pos = 103
   collision2Pos = 65
   collision3Pos = 26
@@ -392,10 +372,7 @@ function resetGV(){
   currentPos = startPosition
   lives = 3
   goalItemPos = 6
-  clearInterval(actionLeft1)
-  clearInterval(actionLeft2)
-  clearInterval(actionRight1)
-  clearInterval(actionRight2)
+  
 }
 
 
@@ -438,6 +415,6 @@ resetBtn.addEventListener('click', resetGame)
 //maybe's
 //pause game btn
 //high score log
-// class wall arrow return nothin so ninja cant move into cell
+
 
 createGrid()
