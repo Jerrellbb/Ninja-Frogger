@@ -4,30 +4,25 @@ const grid = document.querySelector('#grid')
 const audio = new Audio('../assets/8bitninja.wav')
 const currentScore = document.querySelector('.currentScore')
 const endScore = document.querySelector('#gameOverScore')
-// .currentScore
+
 const muteBtn = document.querySelector('#mute')
-// .muteBtn
+
 const startBtn = document.querySelector('#startGame')
-// .startBtn
+
 const ninja = document.querySelector('#grid section.ninja')
-// .ninja
+
 const resetBtn = document.querySelector('#resetGame')
 const startScreen = document.querySelector('#startScreen')
-// .collision1
+
 const collision1 = document.querySelector('#grid section.collision1')
 const collision2 = document.querySelector('#grid section.collision2')
 const collision3 = document.querySelector('#grid section.collision3')
 const collision4 = document.querySelector('#grid section.collision4')
 
-// .collision2
 
-// .timeRemaining
 const timeRemaining = document.querySelector('#timeRemaining')
 
-// const goalItem = document.querySelector()
-// .goalItem
 
-// .gameOverDisp
 const gameOverDisp = document.querySelector('#gameOverDisp')
 const lifes = Array.from(document.querySelectorAll('#lives img'))
 
@@ -37,6 +32,7 @@ let lives = 3
 const startPosition = 110
 let currentPos = startPosition
 let score = 0
+
 
 const cells = []
 
@@ -54,10 +50,8 @@ let collision2Pos = 65
 let collision3Pos = 64
 let collision4Pos = 26
 const rockPos = [86, 87, 81, 82, 44, 45, 46, 15, 16, 17, 21, 22, 23 ]
-// [103, 77]
 
-// const row = 
-//executions
+
 let goalItemPos = 6
 const collision1Row = Math.floor(collision1Pos / width)
 const collision2Row = Math.floor(collision2Pos / width)
@@ -68,7 +62,7 @@ let actionLeft1
 let actionRight1
 let actionLeft2
 let actionRight2
-
+//executions
 function startGame() {
   gameActive = true
   startScreen.style.display = 'none'
@@ -266,7 +260,7 @@ function collisionActionRight(collisionPos, collisionRow, add, remove, cssClass)
 
 
 
-console.log(currentScore)
+
 // function to decreaseLife lives by 1 when ninja collides with collisionItem
 //ninja collision logic if ninja currentpos = collisionPos -1 life
 //ninja goes back to start position
