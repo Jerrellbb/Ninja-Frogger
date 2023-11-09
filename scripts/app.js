@@ -12,7 +12,7 @@ const startBtn = document.querySelector('#startGame')
 const ninja = document.querySelector('#grid section.ninja')
 // .ninja
 const resetBtn = document.querySelector('#resetGame')
-
+const startScreen = document.querySelector('#startScreen')
 // .collision1
 const collision1 = document.querySelector('#grid section.collision1')
 const collision2 = document.querySelector('#grid section.collision2')
@@ -71,6 +71,7 @@ let actionRight2
 
 function startGame() {
   gameActive = true
+  startScreen.style.display = 'none'
   playAudio('../assets/8bitninja.wav')
   collision1Pos = collisionActionLeft(collision1Pos, collision1Row, addClass, removeClass, 'collision1')
   collision3Pos = collisionActionLeft(collision3Pos, collision3Row, addClass, removeClass, 'collision3')
@@ -351,10 +352,10 @@ muteBtn.addEventListener('click', audioMute)
 
 function audioMute(){
   if (audio.muted === false){
-   audio.muted = true
+    audio.muted = true
   } else {
     audio.muted === true
-   audio.muted = false
+    audio.muted = false
   }
 }
 //maybe's
