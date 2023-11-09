@@ -1,6 +1,7 @@
 // elements 
 const grid = document.querySelector('#grid')
-const myAudio = document.createElement('myAudio')
+
+const audio = new Audio('../assets/8bitninja.wav')
 const currentScore = document.querySelector('.currentScore')
 const endScore = document.querySelector('#gameOverScore')
 // .currentScore
@@ -344,14 +345,30 @@ function keyPress(evt){
 startBtn.addEventListener('click', startGame) 
 startBtn.addEventListener('click', gameEnd) 
 resetBtn.addEventListener('click', resetGame)
+muteBtn.addEventListener('click', audioMute)
+
+
+
+function audioMute(){
+  if (audio.muted === false){
+   audio.muted = true
+  } else {
+    audio.muted === true
+   audio.muted = false
+  }
+}
 //maybe's
 //pause game btn
 //high score log
-function playAudio(songName){
-  const audio = new Audio(songName)
+
+function playAudio(){
+  audio.muted = false
   audio.loop = true
   audio.volume = 0.2
+  audio.autoplay
+  audio.currentTime = 0
   audio.play()
+  
 }
 
 
