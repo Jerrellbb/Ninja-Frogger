@@ -1,6 +1,6 @@
 // elements 
 const grid = document.querySelector('#grid')
-
+const myAudio = document.createElement('myAudio')
 const currentScore = document.querySelector('.currentScore')
 const endScore = document.querySelector('#gameOverScore')
 // .currentScore
@@ -30,7 +30,6 @@ const timeRemaining = document.querySelector('#timeRemaining')
 const gameOverDisp = document.querySelector('#gameOverDisp')
 const lifes = Array.from(document.querySelectorAll('#lives img'))
 
-
 //variables
 let lives = 3
 
@@ -51,8 +50,8 @@ const height = 9
 const cellCount = height * width 
 let collision1Pos = 103
 let collision2Pos = 65
-let collision3Pos = 26
-let collision4Pos = 64
+let collision3Pos = 64
+let collision4Pos = 26
 const rockPos = [86, 87, 81, 82, 44, 45, 46, 15, 16, 17, 21, 22, 23 ]
 // [103, 77]
 
@@ -71,7 +70,7 @@ let actionRight2
 
 function startGame() {
   gameActive = true
-
+  playAudio('../assets/8bitninja.wav')
   collision1Pos = collisionActionLeft(collision1Pos, collision1Row, addClass, removeClass, 'collision1')
   collision3Pos = collisionActionLeft(collision3Pos, collision3Row, addClass, removeClass, 'collision3')
   collision2Pos = collisionActionRight(collision2Pos, collision2Row, addClass, removeClass, 'collision2')
@@ -89,7 +88,7 @@ function startGame() {
   }, 200)
   actionLeft2 = setInterval(() => {
     collision3Pos = collisionActionLeft(collision3Pos, collision3Row, addClass, removeClass, 'collision3')
-  }, 300)
+  }, 220)
   actionRight2 = setInterval(() => {
     collision4Pos = collisionActionRight(collision4Pos, collision4Row, addClass, removeClass, 'collision4')
   }, 100)
@@ -277,7 +276,6 @@ function damage() {
 }  
   
 
-
 function resetGame(){
   resetVar()
   
@@ -349,6 +347,12 @@ resetBtn.addEventListener('click', resetGame)
 //maybe's
 //pause game btn
 //high score log
+function playAudio(songName){
+  const audio = new Audio(songName)
+  audio.loop = true
+  audio.volume = 0.2
+  audio.play()
+}
 
 
 createGrid()
