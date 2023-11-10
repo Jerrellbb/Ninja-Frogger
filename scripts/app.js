@@ -363,7 +363,7 @@ function playAudio(){
   audio.volume = 0.2
   audio.autoplay
   audio.currentTime = 0
-  audio.play()
+  audio.play('../assets/8bitninja.wav')
   
 }
 
