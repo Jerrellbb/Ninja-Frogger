@@ -1,7 +1,7 @@
 // elements 
 const grid = document.querySelector('#grid')
 
-const audio = new Audio('../assets/8bitninja.wav')
+const audio = new Audio('./assets/8bitninja.wav')
 const currentScore = document.querySelector('.currentScore')
 const endScore = document.querySelector('#gameOverScore')
 
@@ -363,7 +363,7 @@ function playAudio(){
   audio.volume = 0.2
   audio.autoplay
   audio.currentTime = 0
-  audio.play('../assets/8bitninja.wav')
+  audio.play()
   
 }
 
