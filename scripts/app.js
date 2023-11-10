@@ -282,8 +282,9 @@ function resetGame(){
   clearInterval(actionRight2)
   clearInterval(timer)
   gameOverDisp.style.display = 'none'
+  removeNinja()
   startGame()
-  
+  addNinja()
   timer = setInterval(gameEnd,1000)
   
 }
