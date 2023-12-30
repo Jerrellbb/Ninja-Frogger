@@ -42,14 +42,14 @@ const cells = []
 let timeLeft = 100
 let gameActive = false
 
-const width = 13 
+const width = 13
 const height = 9
-const cellCount = height * width 
+const cellCount = height * width
 let collision1Pos = 103
 let collision2Pos = 65
 let collision3Pos = 64
 let collision4Pos = 26
-const rockPos = [86, 87, 81, 82, 44, 45, 46, 15, 16, 17, 21, 22, 23 ]
+const rockPos = [86, 87, 81, 82, 44, 45, 46, 15, 16, 17, 21, 22, 23]
 
 
 let goalItemPos = 6
@@ -71,12 +71,12 @@ function startGame() {
   collision3Pos = collisionActionLeft(collision3Pos, collision3Row, addClass, removeClass, 'collision3')
   collision2Pos = collisionActionRight(collision2Pos, collision2Row, addClass, removeClass, 'collision2')
   collision4Pos = collisionActionRight(collision4Pos, collision4Row, addClass, removeClass, 'collision4')
-  
-  
+
+
 
   goalItemAdd()
-  document.addEventListener('keydown', keyPress)
-  actionLeft1 = setInterval(() => { 
+
+  actionLeft1 = setInterval(() => {
     collision1Pos = collisionActionLeft(collision1Pos, collision1Row, addClass, removeClass, 'collision1')
   }, 300)
   actionRight1 = setInterval(() => {
@@ -88,13 +88,13 @@ function startGame() {
   actionRight2 = setInterval(() => {
     collision4Pos = collisionActionRight(collision4Pos, collision4Row, addClass, removeClass, 'collision4')
   }, 100)
-} 
-  
+}
 
 
 
-function createGrid(){
-  
+
+function createGrid() {
+
   for (let i = 0; i < cellCount; i++) {
     const cell = document.createElement('section')
     // cell.innerText = i // remove to delete numbers in cells 
@@ -104,53 +104,53 @@ function createGrid(){
     grid.append(cell)
     cells.push(cell)
   }
-  
+
   gameOverDisp.style.display = 'none'
-    
+
   addNinja()
   addRock()
-  
+
 }
 
-function addNinja(){
+function addNinja() {
   cells[currentPos].classList.add('ninja')
 }
 
-function removeNinja(){
+function removeNinja() {
   cells[currentPos].classList.remove('ninja')
 }
 
-function goalItemAdd(){
+function goalItemAdd() {
   cells[goalItemPos].classList.add('goalItem')
 }
-function goalItemRemove(){
+function goalItemRemove() {
   cells[goalItemPos].classList.remove('goalItem')
 }
-function collision1add(){
+function collision1add() {
   cells[collision1Pos].classList.add('collision1')
 
 }
 
-function addClass(collisionPos, cssClass){
+function addClass(collisionPos, cssClass) {
   cells[collisionPos].classList.add(cssClass)
 
 }
 
-function removeClass(collisionPos, cssClass){
+function removeClass(collisionPos, cssClass) {
   cells[collisionPos].classList.remove(cssClass)
 }
 
 
 
 // }
-function resetNinja(){
-  cells[currentPos].classList.remove('ninja') 
-  currentPos = startPosition 
-  addNinja() 
-  
+function resetNinja() {
+  cells[currentPos].classList.remove('ninja')
+  currentPos = startPosition
+  addNinja()
+
 }
-function addRock(){
-  
+function addRock() {
+
 
   for (const position of rockPos) {
     cells[position].classList.add('wall')
@@ -174,13 +174,13 @@ function addRock(){
 // setTimeout for gameover when timer runs down to 0
 // remove display none from gameOverdisp
 // game active false
-function gameEnd(){
-  if (gameActive === true){
+function gameEnd() {
+  if (gameActive === true) {
     timeLeft--
     timeRemaining.innerText = timeLeft
   }
-  if (timeLeft === 0 || lives === 0){
-    
+  if (timeLeft === 0 || lives === 0) {
+
     gameOverDisp.style.display = ''
     removeNinja()
     goalItemRemove()
@@ -188,7 +188,7 @@ function gameEnd(){
     document.removeEventListener('keydown', keyPress)
     clearInterval(timer)
   }
-  
+
 }
 let timer = setInterval(gameEnd, 1000)
 
@@ -199,7 +199,7 @@ let timer = setInterval(gameEnd, 1000)
 //ninja start position
 //replace hidden class goalItem so u can collect it again
 function point() {
-  if (currentPos === goalItemPos){
+  if (currentPos === goalItemPos) {
     goalItemRemove()
     score += 100
     currentScore.innerText = score
@@ -207,7 +207,7 @@ function point() {
     resetNinja()
     goalItemPos = rndmPos(0)
     setTimeout(goalItemAdd, 3000)
-    
+
   }
 }
 
@@ -219,39 +219,39 @@ function rndmPos(row) {
 
 // setInterval (collisionItem1 left across grid at speed)
 
-function collisionActionLeft(collisionPos, collisionRow, add, remove, cssClass){
-  
-  if ( collisionPos  % width !== 0) {
+function collisionActionLeft(collisionPos, collisionRow, add, remove, cssClass) {
+
+  if (collisionPos % width !== 0) {
     remove(collisionPos, cssClass)
-    collisionPos --
+    collisionPos--
     add(collisionPos, cssClass)
   } else {
     remove(collisionPos, cssClass)
-    collisionPos =  collisionRow * width + (width - 1)
+    collisionPos = collisionRow * width + (width - 1)
     add(collisionPos, cssClass)
-  } 
-  if (collisionPos === currentPos){
-    
+  }
+  if (collisionPos === currentPos) {
+
     damage()
-    
-  } 
+
+  }
   return collisionPos
 
 }
 
-function collisionActionRight(collisionPos, collisionRow, add, remove, cssClass){
-  if ( collisionPos  % width !== width - 1) {
+function collisionActionRight(collisionPos, collisionRow, add, remove, cssClass) {
+  if (collisionPos % width !== width - 1) {
     remove(collisionPos, cssClass)
-    collisionPos ++
+    collisionPos++
     add(collisionPos, cssClass)
   } else {
     remove(collisionPos, cssClass)
-    collisionPos =  collisionRow * width 
+    collisionPos = collisionRow * width
     add(collisionPos, cssClass)
-  } 
-  if (collisionPos === currentPos){
+  }
+  if (collisionPos === currentPos) {
     damage()
-  } 
+  }
   return collisionPos
 
 }
@@ -268,13 +268,13 @@ function damage() {
   lives -= 1
   lifes[lives].style.visibility = 'hidden'
   resetNinja()
-  
-}  
-  
 
-function resetGame(){
+}
+
+
+function resetGame() {
   resetVar()
-  
+
   lifes.forEach((life) => (life.style.visibility = 'visible'))
   clearInterval(actionLeft1)
   clearInterval(actionLeft2)
@@ -285,11 +285,11 @@ function resetGame(){
   removeNinja()
   startGame()
   addNinja()
-  timer = setInterval(gameEnd,1000)
-  
+  timer = setInterval(gameEnd, 1000)
+
 }
 
-function resetVar(){
+function resetVar() {
   collision1Pos = 103
   collision2Pos = 65
   collision3Pos = 26
@@ -311,7 +311,8 @@ function resetVar(){
 // moveNinja()
 ///events
 // move ninja on keypress
-function keyPress(evt){
+document.addEventListener('keydown', keyPress)
+function keyPress(evt) {
   const key = evt.code
   const prevPos = currentPos
   removeNinja()
@@ -330,23 +331,30 @@ function keyPress(evt){
   }
   addNinja()
   point()
-  if (currentPos === collision1Pos || currentPos === collision2Pos || currentPos === collision3Pos || currentPos === collision4Pos){
+  if (currentPos === collision1Pos || currentPos === collision2Pos || currentPos === collision3Pos || currentPos === collision4Pos) {
     return damage()
   }
+}
+function checkScreenSizeAndRemoveListener() {
+  if (window.innerWidth < 824) {
+    document.removeEventListener('keydown', keyPress)
+  } else if (window.innerwidth > 824)
+    document.removeEventListener('touchend', keyPress)
+  document.removeEventListener('touchstart', keyPress)
 }
 
 
 // mute sound on button click
 //start game on button click
-startBtn.addEventListener('click', startGame) 
-startBtn.addEventListener('click', gameEnd) 
+startBtn.addEventListener('click', startGame)
+startBtn.addEventListener('click', gameEnd)
 resetBtn.addEventListener('click', resetGame)
 muteBtn.addEventListener('click', audioMute)
 
 
 
-function audioMute(){
-  if (audio.muted === false){
+function audioMute() {
+  if (audio.muted === false) {
     audio.muted = true
   } else {
     audio.muted === true
@@ -357,15 +365,72 @@ function audioMute(){
 //pause game btn
 //high score log
 
-function playAudio(){
+function playAudio() {
   audio.muted = false
   audio.loop = true
   audio.volume = 0.2
   audio.autoplay
   audio.currentTime = 0
   audio.play()
-  
+
 }
+let startX, startY, endX, endY
+
+document.addEventListener('touchstart', function (e) {
+  startX = e.touches[0].clientX
+  startY = e.touches[0].clientY
+})
+
+document.addEventListener('touchend', function (e) {
+  endX = e.changedTouches[0].clientX
+  endY = e.changedTouches[0].clientY
+
+  const deltaX = endX - startX
+  const deltaY = endY - startY
+  const prevPos = currentPos
+  removeNinja()
 
 
+  // Calculate the percentage of the total grid width and height
+  const percentX = deltaX / window.innerWidth
+  const percentY = deltaY / window.innerHeight
+
+  // Determine the swipe direction based on cell movement
+  if (Math.abs(percentX) > Math.abs(percentY)) {
+    // Horizontal swipe
+    if (percentX > 0 && currentPos % width !== width - 1) {
+      console.log('Swiped right')
+      currentPos++
+    } else if (percentX < 0 && currentPos % width !== 0) {
+      console.log('Swiped left')
+      currentPos--
+    }
+  } else {
+    // Vertical swipe
+    if (percentY > 0 && currentPos + width < cells.length) {
+      console.log('Swiped down')
+      currentPos += width
+    } else if (percentY < 0 && currentPos >= width) {
+      console.log('Swiped up')
+      currentPos -= width
+      console.log(prevPos)
+    }
+
+  } {
+
+
+    if (cells[currentPos].classList.contains('wall')) {
+      currentPos = prevPos
+    }
+    removeNinja()
+    addNinja()
+    point()
+    if (currentPos === collision1Pos || currentPos === collision2Pos || currentPos === collision3Pos || currentPos === collision4Pos) {
+      return damage()
+    }
+
+  }
+
+})
+checkScreenSizeAndRemoveListener()
 createGrid()

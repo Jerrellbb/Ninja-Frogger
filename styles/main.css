@@ -11,11 +11,15 @@ body {
   background-size: cover;
   font-size: 20px;
   color: rgb(226, 223, 223);
+  text-shadow:  -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #000000;
 }
 .header{
   display:flex;
   justify-content: space-around;
   
+}
+.main-text{
+  text-shadow:  -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
 }
 .header img{
   
@@ -77,6 +81,7 @@ body {
   padding: 100px;
   font-size: 30px;
   height: 1000px;
+  width: 100%;
   background-image: url('../assets/ninjacover.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -143,4 +148,31 @@ body {
 }
 button{
   cursor: pointer;
+}
+
+#mobile{
+  display: none;
+}
+
+@media only screen and (max-width: 824px) {
+  body{
+    font-size: 15px;
+  }
+  #large-screen{
+  display: none;
+  }
+  #mobile{
+    display: block;
+  }
+  #hud div img {
+    width: 15px;
+  }
+  
+}
+@media only screen and (max-width: 385px) {
+  body{
+    font-size: 10px;
+    
+  }
+  
 }
