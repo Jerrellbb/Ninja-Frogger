@@ -5,7 +5,7 @@ Ninjump ReadMe
 
 # Overview and Concept
 
-This is my first project which is a game called Ninjump! It’s basically Frogger with a ninja theme. The main difference between my project and frogger is u work against the clock to see how many points you can get by collecting the coin that appears in random positions on the first row. This project was created during my fourth week at General Assembly in which we were tasked to choose a game and have it completed by friday morning.
+This is my first project which is a game called Ninjump! It’s basically Frogger with a ninja theme. The main difference between my project and frogger is you work against the clock to see how many points you can get by collecting the coin that appears in random positions on the first row. This project was created during my fourth week at General Assembly in which we were tasked to choose a game and have it completed by friday morning.
 
 Game’s link: [ninjump]( https://jerrellbb.github.io/Ninja-Frogger/)
 
