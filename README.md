@@ -5,9 +5,9 @@ Ninjump ReadMe
 
 # Overview and Concept
 
-This is my first project which is a game called Ninjump! It’s basically Frogger with a ninja theme. The main difference between my project and frogger is u work against the clock to see how many points you can get by collecting the coin that appears in random positions on the first row. This project was created during my fourth week at General Assembly in which we were tasked to choose a game and have it completed by friday morning.
+This is my first project which is a game called Ninjump! It’s basically Frogger with a ninja theme. The main difference between my project and frogger is you work against the clock to see how many points you can get by collecting the coin that appears in random positions on the first row. This project was created during my fourth week at General Assembly in which we were tasked to choose a game and have it completed by friday morning.
 
-Game’s link:
+Game’s link: [ninjump]( https://jerrellbb.github.io/Ninja-Frogger/)
 
 # Technologies Used
 
@@ -28,13 +28,17 @@ General styling of game.
 
 JavaScript:
 Appended grid section to create and push more cells to array.
-function  to move the character around the grid.
+Function  to move the character around the grid.
 Play and pause audio.
 setInterval to move enemies.
 Click events to start and reset the game.
-display: none to hide overlays.
+Display: none to hide overlays.
 Set walls cannot pass through.
 Random position generation for the goal Item.
+
+# Technical requirements:
+ The game is designed to render in the browser and is constructed on a grid without utilising HTML Canvas. To ensure simplicity and efficiency, the project adheres to the KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles. The logic for determining a winner is meticulously crafted, and the victorious outcome is visually displayed for players. The implementation involves separate HTML, CSS, and JavaScript files, with JavaScript responsible for DOM manipulation. As part of best practices, semantic markup is employed in both HTML and CSS. The next steps include deploying the game online for global accessibility, and this process will be completed collaboratively at the project's conclusion.
+For the necessary deliverables, the project mandates the creation of a fully operational game hosted on the internet, with a corresponding link provided in the GitHub repository's URL section. The Git repository, hosted on GitHub, must exhibit frequent commits tracing back to the project's inception. Additionally, a comprehensive "readme.md" file is required post-project, detailing the technologies used, the development approach, installation instructions, and any unresolved issues encountered during the process. This documentation serves as a valuable resource for understanding the project's intricacies and facilitating seamless collaboration.
 
 # The approach taken:
 
@@ -101,6 +105,10 @@ Day 5 I used this time to add functionality to my reset button. I also added my 
 I learned alot about myself during this project. I doubted myself a lot before starting it. I was very proud of myself for managing to implement everything that I wanted to.
 I learned how to add overlays and pop up like my start screen and game over display.
 Adding and looping audio and resetting the audio without it playing over itself.
+
+# Wins:
+Being able to create a functional and visually appealing game in such a short time.
+Realising how much information stuck with me during each lesson.
 
 
 # Challenges:
