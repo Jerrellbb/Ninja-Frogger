@@ -338,7 +338,7 @@ function keyPress(evt) {
 function checkScreenSizeAndRemoveListener() {
   if (window.innerWidth < 824) {
     document.removeEventListener('keydown', keyPress)
-  } else if (window.innerwidth > 824)
+  } else if (window.innerWidth > 824)
     document.removeEventListener('touchend', keyPress)
   document.removeEventListener('touchstart', keyPress)
 }
