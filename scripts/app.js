@@ -286,6 +286,7 @@ function resetGame() {
   startGame()
   addNinja()
   timer = setInterval(gameEnd, 1000)
+  document.addEventListener('keydown', keyPress)
 
 }
 
